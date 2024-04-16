@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <button onclick="ClientInit();">reconnect</button>
+    <div><input value="satoshiinu3104" type="text" id="userNameInput"><button
+            onclick="Packet.sendUserName(userNameInput.value)">update</button>id:<span id="userIdElem"></span></div>
+    <div><input value="" type="text" id="messageInput"><button
+            onclick="Packet.sendMessage(messageInput.value)">send</button></div>
+    <div>message:</div>
+    <div id="messagesTextElem"></div>
+    <br>
+
+    <div>userList:</div>
+    <div id="userListElem"></div>
+</body>
+
+</html>
