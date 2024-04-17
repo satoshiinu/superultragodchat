@@ -12,7 +12,7 @@ const packetTypesS2C = {
     sendUserName: "\x30"
 }
 
-
+const wsport = 8001;
 let socket = null;
 isServer = null;
 ws = null;
@@ -86,8 +86,7 @@ function ServerInit() {
     }
 
     const server = require('ws').Server;
-    const port = 8001;
-    const wss = new server({ port: port });
+    const wss = new server({ port: wsport });
     const { v4: uuidv4 } = require('uuid');
 
 
@@ -153,7 +152,7 @@ function ClientInit() {
         }
     }
 
-    ws = new WebSocket(`ws://${location.hostname}:8081`);
+    ws = new WebSocket(`ws://${location.hostname}:${wsport}`);
     ws.onmessage = (ms) => {
         let message = ms.data.toString().slice(1);
         let msRaw = ms.data;
