@@ -25,7 +25,6 @@ if (typeof process !== 'undefined' && process.versions && process.versions.node)
 if (isServer) ServerInit();
 else ClientInit();
 function ServerInit() {
-    console.log("serving at port" + port);
     Packet = class {
         static send(sendChar, message, client) {
             client.send(`${sendChar ?? "\0"}${message}`)
@@ -122,6 +121,8 @@ function ServerInit() {
         ws.userId = uuidv4();
         Packet.userInit(ws);
     }
+    console.log("serving at port " + port);
+
 }
 function ClientInit() {
     Packet = class {
